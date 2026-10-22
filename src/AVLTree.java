@@ -47,12 +47,37 @@ public class AVLTree {
                     current = current.right;
                 }
             }
+            Node newNode = new Node(key);
             if (key < currentParent.key){
-                currentParent.left = new Node(key);
+                currentParent.left = newNode;
             }
             else {
-                currentParent.right = new Node(key);
+                currentParent.right = newNode;
             }
+            newNode.parent = currentParent;
         }
+    }
+    public int getBalance(Node node){
+        if(node == null){
+            return 0;
+        }
+        return height(node.left) - height(node.right);
+    }
+    public Node rightRotate(Node root){
+        Node t = root;
+        root = root.left;
+        root.right = t;
+        root.right = t.left;
+
+        
+    }
+    public Node leftRotate(Node x){
+        Node y = x.right;
+        Node T2 = y.left;
+        y.left = x;
+        x.right = T2;
+        y.parent = null;
+        x.parent = y;
+        return y;
     }
 }

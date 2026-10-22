@@ -1,0 +1,13 @@
+# Thư mục cấu hình IDE
+.vscode/
+.idea/
+
+# Thư mục biên dịch và build
+bin/
+build/
+dist/
+out/
+
+# File hệ điều hành
+.DS_Store
+Thumbs.db
